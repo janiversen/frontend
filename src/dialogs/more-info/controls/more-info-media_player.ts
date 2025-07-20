@@ -72,12 +72,7 @@ class MoreInfoMediaPlayer extends LitElement {
         ${!isUnavailableState(stateObj.state) &&
         supportsFeature(stateObj, MediaPlayerEntityFeature.BROWSE_MEDIA)
           ? html`
-              <ha-button
-                .label=${this.hass.localize(
-                  "ui.card.media_player.browse_media"
-                )}
-                @click=${this._showBrowseMedia}
-              >
+              <ha-button .label=${""} @click=${this._showBrowseMedia}>
                 <ha-svg-icon
                   .path=${mdiPlayBoxMultiple}
                   slot="icon"
