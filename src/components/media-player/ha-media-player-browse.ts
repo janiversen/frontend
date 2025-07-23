@@ -790,6 +790,13 @@ export class HaMediaPlayerBrowse extends LitElement {
     mediaContentId?: string,
     mediaContentType?: string
   ): Promise<MediaPlayerItem> {
+    if (mediaContentType == null) {
+      mediaContentType = "";
+    }
+    if (mediaContentId == null) {
+      mediaContentId = "";
+    }
+    mediaContentType = this.hass.user.name + ":" + mediaContentType;
     return entityId && entityId !== BROWSER_PLAYER
       ? browseMediaPlayer(this.hass, entityId, mediaContentId, mediaContentType)
       : browseLocalMediaPlayer(this.hass, mediaContentId);
